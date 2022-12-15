@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/style.css">
+    <!-- Google fonts link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/style.css"/>
     <title>Weather Dashboard</title>
 </head>
 <body>
@@ -15,8 +19,12 @@
     <p>Enter a city name to see current and future weather conditions!</p>
 </header>
     <!-- Search Bar -->
-
+<form> 
+    <label for="city-name">City name:</label>
+    <input type="text" id="city-name" name="city-name"><br><br>
+    <input type="submit" id="submit-btn" value="Submit">
+</form> 
  
-    <script src="/assets/script.js"></script>
+    <script src="./assets/script.js"></script>
 </body>
 </html>

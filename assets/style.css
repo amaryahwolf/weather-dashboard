@@ -1,0 +1,39 @@
+:root {
+    --gray: #8789C0;
+    --turquoise: #45F0Df;
+    --periwinkle: #c2cae8;
+    --bluepurple: #8380b6;
+    --darkblue: #111d4a;
+}
+
+body {
+    background: linear-gradient(#111d4a, #8380b6);
+    font-family: 'Unbounded', cursive;
+}
+
+header {
+    text-align: start;
+    padding-left: 60px;
+    padding-top: 60px;
+    color: white;
+}
+
+form {
+    display: flex;
+    color: white;
+    justify-content: align-items;
+}
+
+form label {
+    padding-left: 60px;
+}
+
+#city-name {
+    margin-left: 5px;
+}
+
+#submit-btn {
+    margin: 5px;
+    font-family: 'Unbounded', cursive;
+    color: var(--gray)
+}
