@@ -1,13 +1,15 @@
 // Global variables
 var submitBtn = document.querySelector('#submit-btn');
+var cityInput = document.querySelector('#city-input');
 var currentWeatherCard = document.querySelector('#current-weather');
+var forecastCard = document.querySelector('#forecast-cards');
 var day1Card = document.querySelector('#day1forecast');
 var day2Card = document.querySelector('#day2forecast');
 var day3Card = document.querySelector('#day3forecast');
 var day4Card = document.querySelector('#day4forecast');
 var day5Card = document.querySelector('#day5forecast');
 
-// Function to use geocoder API to get lat/lon from city name
+// Function to use geocoder API to get lat/lon from city name and run current weather and forecast functions
 function runWeatherSearch(event) {
     event.preventDefault();
     var searchInputVal = document.querySelector('#city-input').value;
@@ -18,16 +20,13 @@ function runWeatherSearch(event) {
     })
     .then (function (data) {
         console.log(data)
-        // // City name
-        var cityName = document.createElement('h3');
-        cityName.textContent = data[0].name;
-        currentWeatherCard.appendChild(cityName);
 
         var latValue = data[0].lat;
         var lonValue = data[0].lon;
 
         getWeatherForecast(latValue, lonValue);
         getCurrentWeather(latValue, lonValue);
+        cityInput.value = ''; 
     })
 }
 
@@ -41,30 +40,29 @@ function getCurrentWeather(latValue, lonValue) {
         .then(function (data) {
             console.log(data)
             // City Name
-            
-            
+            var cityName = document.createElement('h3');
+            cityName.textContent = data.name;
+            currentWeatherCard.appendChild(cityName);            
             // Date
             var currentDate = document.createElement('p');
-            currentDate.textContent = data.dt
+            var milliseconds = new Date(data.dt * 1000)
+            var convertedDate = milliseconds.toLocaleDateString()
+            currentDate.textContent = convertedDate;
             currentWeatherCard.appendChild(currentDate);
-
             // Weather icon
             var currentIconCode = data.weather[0].icon;
             var currentIconUrl = 'http://openweathermap.org/img/wn/' + currentIconCode + '@2x.png';
             var currentIcon = document.createElement('img');
             currentIcon.src = currentIconUrl;
             currentWeatherCard.appendChild(currentIcon);
-
             // Temperature
             var currentTemp = document.createElement('p');
             currentTemp.textContent = data.main.temp + '°F';
             currentWeatherCard.appendChild(currentTemp);
-
             // Wind
             var currentWind = document.createElement('p');
             currentWind.textContent = data.wind.speed + ' MPH Winds';
             currentWeatherCard.appendChild(currentWind);
-
             // Humidity
             var currentHumidity = document.createElement('p');
             currentHumidity.textContent = data.main.humidity + '% Humidity';
@@ -84,33 +82,33 @@ function getWeatherForecast(latValue, lonValue) {
 // Day 1/5 Forecast
             // Date
             var day1Date = document.createElement('p');
-            day1Date.textContent = data.list[3].dt_txt.slice(0, 11);
+            var milliseconds1 = new Date(data.list[3].dt * 1000)
+            var convertedDate1 = milliseconds1.toLocaleDateString()
+            day1Date.textContent = convertedDate1;
             day1Card.appendChild(day1Date);
-
             // Weather icon
             var day1IconCode = data.list[3].weather[0].icon;
             var day1IconUrl = 'http://openweathermap.org/img/wn/' + day1IconCode + '@2x.png';
             var day1Icon = document.createElement('img');
             day1Icon.src = day1IconUrl;
             day1Card.appendChild(day1Icon);
-
             // Temperature
             var day1Temp = document.createElement('p');
             day1Temp.textContent = data.list[3].main.temp + '°F';
             day1Card.appendChild(day1Temp);
-
             // Wind
             var day1Wind = document.createElement('p');
             day1Wind.textContent = data.list[3].wind.speed + ' MPH Winds';
             day1Card.appendChild(day1Wind);
-
             // Humidity
             var day1Humidity = document.createElement('p');
             day1Humidity.textContent = data.list[3].main.humidity + '% Humidity';
             day1Card.appendChild(day1Humidity);           
 // Day 2/5 Forecast
             var day2Date = document.createElement('p');
-            day2Date.textContent = data.list[11].dt_txt.slice(0, 11);
+            var milliseconds2 = new Date(data.list[11].dt * 1000)
+            var convertedDate2 = milliseconds2.toLocaleDateString()
+            day2Date.textContent = convertedDate2;
             day2Card.appendChild(day2Date);
 
             var day2IconCode = data.list[11].weather[0].icon;
@@ -132,7 +130,9 @@ function getWeatherForecast(latValue, lonValue) {
             day2Card.appendChild(day2Humidity);
 // Day 3/5 Forecast
             var day3Date = document.createElement('p');
-            day3Date.textContent = data.list[19].dt_txt.slice(0, 11);
+            var milliseconds3 = new Date(data.list[19].dt * 1000)
+            var convertedDate3 = milliseconds3.toLocaleDateString()
+            day3Date.textContent = convertedDate3;
             day3Card.appendChild(day3Date);
 
             var day3IconCode = data.list[19].weather[0].icon;
@@ -154,7 +154,9 @@ function getWeatherForecast(latValue, lonValue) {
             day3Card.appendChild(day3Humidity);
 // Day 4/5 Forecast
             var day4Date = document.createElement('p');
-            day4Date.textContent = data.list[27].dt_txt.slice(0, 11);
+            var milliseconds4 = new Date(data.list[27].dt * 1000)
+            var convertedDate4 = milliseconds4.toLocaleDateString()
+            day4Date.textContent = convertedDate4;
             day4Card.appendChild(day4Date);
 
             var day4IconCode = data.list[27].weather[0].icon;
@@ -176,7 +178,9 @@ function getWeatherForecast(latValue, lonValue) {
             day4Card.appendChild(day4Humidity);
 // Day 5/5 Forecast
             var day5Date = document.createElement('p');
-            day5Date.textContent = data.list[35].dt_txt.slice(0, 11);
+            var milliseconds5 = new Date(data.list[35].dt * 1000)
+            var convertedDate5 = milliseconds5.toLocaleDateString()
+            day5Date.textContent = convertedDate5;
             day5Card.appendChild(day5Date);
 
             var day5IconCode = data.list[35].weather[0].icon;
@@ -199,7 +203,10 @@ function getWeatherForecast(latValue, lonValue) {
 })
 }
 
-// Add styling to forecast cards
+// Add styling to current weather and forecast cards
+
+
+// Autopopulate city options
 
 // Add searchAgain function to clear previous search data
 
