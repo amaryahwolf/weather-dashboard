@@ -8,6 +8,7 @@
 
 body {
     background: linear-gradient(#111d4a, #8380b6);
+    height: 100vh;
     font-family: 'Unbounded', cursive;
 }
 
@@ -36,7 +37,12 @@ form {
 }
 
 #current-weather {
-    border:#45F0Df;
+    border: var(--periwinkle);
     display: flex;
-    align-items: center;
+    justify-content: center;
+}
+
+#day1forecast {
+    border: var(--turquoise)
+    /* text-align: center; */
 }
