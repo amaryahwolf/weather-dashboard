@@ -42,7 +42,11 @@ form {
     justify-content: center;
 }
 
-#day1forecast {
-    border: var(--turquoise)
-    /* text-align: center; */
+#forecast-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    margin-left: 300px;
+
 }
