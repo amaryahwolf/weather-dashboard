@@ -24,16 +24,13 @@ form {
     justify-content: align-items;
 }
 
-form label {
-    padding-left: 60px;
-}
-
-#city-name {
-    margin-left: 5px;
+#city-input {
+    margin-left: 60px;
+    font-family: 'Unbounded', cursive;
 }
 
 #submit-btn {
-    margin: 5px;
+    margin-left: 5px;
     font-family: 'Unbounded', cursive;
     color: var(--gray)
 }
