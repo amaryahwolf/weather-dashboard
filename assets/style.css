@@ -34,3 +34,9 @@ form {
     font-family: 'Unbounded', cursive;
     color: var(--gray)
 }
+
+#current-weather {
+    border:#45F0Df;
+    display: flex;
+    align-items: center;
+}
