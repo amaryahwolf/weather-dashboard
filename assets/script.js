@@ -74,7 +74,7 @@ function getCurrentWeather(latValue, lonValue) {
             currentWeatherCard.appendChild(currentDate);
             // Weather icon
             var currentIconCode = data.weather[0].icon;
-            var currentIconUrl = 'http://openweathermap.org/img/wn/' + currentIconCode + '@2x.png';
+            var currentIconUrl = 'https://openweathermap.org/img/wn/' + currentIconCode + '@2x.png';
             var currentIcon = document.createElement('img');
             currentIcon.src = currentIconUrl;
             currentWeatherCard.appendChild(currentIcon);
@@ -113,7 +113,7 @@ function getWeatherForecast(latValue, lonValue) {
             day1Card.appendChild(day1Date);
             // Weather icon
             var day1IconCode = data.list[3].weather[0].icon;
-            var day1IconUrl = 'http://openweathermap.org/img/wn/' + day1IconCode + '@2x.png';
+            var day1IconUrl = 'https://openweathermap.org/img/wn/' + day1IconCode + '@2x.png';
             var day1Icon = document.createElement('img');
             day1Icon.src = day1IconUrl;
             day1Card.appendChild(day1Icon);
@@ -138,7 +138,7 @@ day2Card.innerHTML = ''
             day2Card.appendChild(day2Date);
 
             var day2IconCode = data.list[11].weather[0].icon;
-            var day2IconUrl = 'http://openweathermap.org/img/wn/' + day2IconCode + '@2x.png';
+            var day2IconUrl = 'https://openweathermap.org/img/wn/' + day2IconCode + '@2x.png';
             var day2Icon = document.createElement('img');
             day2Icon.src = day2IconUrl;
             day2Card.appendChild(day2Icon);
@@ -164,7 +164,7 @@ day2Card.innerHTML = ''
             day3Card.appendChild(day3Date);
 
             var day3IconCode = data.list[19].weather[0].icon;
-            var day3IconUrl = 'http://openweathermap.org/img/wn/' + day3IconCode + '@2x.png';
+            var day3IconUrl = 'https://openweathermap.org/img/wn/' + day3IconCode + '@2x.png';
             var day3Icon = document.createElement('img');
             day3Icon.src = day3IconUrl;
             day3Card.appendChild(day3Icon);
@@ -190,7 +190,7 @@ day2Card.innerHTML = ''
             day4Card.appendChild(day4Date);
 
             var day4IconCode = data.list[27].weather[0].icon;
-            var day4IconUrl = 'http://openweathermap.org/img/wn/' + day4IconCode + '@2x.png';
+            var day4IconUrl = 'https://openweathermap.org/img/wn/' + day4IconCode + '@2x.png';
             var day4Icon = document.createElement('img');
             day4Icon.src = day4IconUrl;
             day4Card.appendChild(day4Icon);
@@ -215,7 +215,7 @@ day2Card.innerHTML = ''
             day5Card.appendChild(day5Date);
 
             var day5IconCode = data.list[35].weather[0].icon;
-            var day5IconUrl = 'http://openweathermap.org/img/wn/' + day5IconCode + '@2x.png';
+            var day5IconUrl = 'https://openweathermap.org/img/wn/' + day5IconCode + '@2x.png';
             var day5Icon = document.createElement('img');
             day5Icon.src = day5IconUrl;
             day5Card.appendChild(day5Icon);
