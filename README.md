@@ -1,6 +1,6 @@
 # Weather or Not
 
-## [Deployed Applicaition](https://amaryahwolf.github.io/weather-dashboard/)
+## [Deployed Application](https://amaryahwolf.github.io/weather-dashboard/)
 
 ## Description
 This application is a weather dashboard that displays the current weather for any city around the world, as well as the 5-day forecast. This application uses HTML and CSS dynamically powered by JavaScript.
