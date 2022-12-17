@@ -11,6 +11,7 @@ var day4Card = document.querySelector('#day4forecast');
 var day5Card = document.querySelector('#day5forecast');
 var searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
 
+// Function to get persistent data out of local storage and onto webpage
 function getHistory() {
     savedSearchBtn.innerHTML = ''
     for (var i = 0; i < searchHistory.length; i++) {
@@ -21,6 +22,7 @@ function getHistory() {
     }
 }
 getHistory();
+
 // Function to use geocoder API to get lat/lon from city name and run current weather and forecast functions
 function runWeatherSearch(event) {
     event.preventDefault();
@@ -36,23 +38,17 @@ function runWeatherSearch(event) {
         return response.json();
     })
     .then (function (data) {
-        console.log(data)
-
-        var latValue = data[0].lat;
-        var lonValue = data[0].lon;
+    var latValue = data[0].lat;
+    var lonValue = data[0].lon;
 // Store lat and lon for saved city search
-
 if (!searchHistory.includes(searchInputVal)) {
     searchHistory.push(searchInputVal);
     localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
 }
-
-
-getHistory();
-
-        getWeatherForecast(latValue, lonValue);
-        getCurrentWeather(latValue, lonValue);
-        cityInput.value = ''; 
+    getHistory();
+    getWeatherForecast(latValue, lonValue);
+    getCurrentWeather(latValue, lonValue);
+    cityInput.value = ''; 
     })
 }
 
@@ -65,9 +61,7 @@ function getCurrentWeather(latValue, lonValue) {
         })
         .then(function (data) {
             console.log(data)
-
     currentWeatherCard.innerHTML = ''        
-
             // City Name
             var cityName = document.createElement('h3');
             cityName.textContent = data.name;
@@ -240,24 +234,7 @@ day2Card.innerHTML = ''
 })
 }
 
-// Add local storage function to store names of cities searched 
-// Store lat and lon of city
-// Create event target for new buttons
-// Call API functions with lat and lon data retrieved from local storage
-//   savedSearchBtn.addEventListener('click', (getWeatherForecast(), getCurrentWeather()));
-//   savedLatValue = localStorage.getItem('lat')
-//   savedLonValue = localStorage.getItem('lon')
-
-
-
-// Add styling to current weather card, forecast cards, and city buttons
-
-// Autopopulate city options
-
-
-
-
-  submitBtn.addEventListener('click', runWeatherSearch);
+submitBtn.addEventListener('click', runWeatherSearch);
 
 
 
