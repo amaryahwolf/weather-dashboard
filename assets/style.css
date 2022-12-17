@@ -36,8 +36,22 @@ form {
     color: var(--gray)
 }
 
+#saved-searches button {
+    display:flex;
+    flex-direction: column;
+    margin-left: 5px;
+    font-family: 'Unbounded', cursive;
+    color: var(--bluepurple);
+    margin-left: 60px
+}
+
+.current-weather-card {
+    border-color: black;
+    border-width: 5px;
+}
+
 #current-weather {
-    border: var(--periwinkle);
+    
     display: flex;
     justify-content: center;
     gap: 30px;
