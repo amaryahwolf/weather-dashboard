@@ -32,7 +32,7 @@ function runWeatherSearch(event) {
     } else {
         searchInputVal = document.querySelector('#city-input').value;
     };
-    var geocodeUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + searchInputVal + '&appid=9c63818d2a58372824ad020aa4224924'
+    var geocodeUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + searchInputVal + '&appid=9c63818d2a58372824ad020aa4224924'
     fetch(geocodeUrl)
     .then(function (response) {
         return response.json();
