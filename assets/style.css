@@ -42,7 +42,7 @@ form {
     margin-left: 5px;
     font-family: 'Unbounded', cursive;
     color: var(--bluepurple);
-    margin-left: 60px
+    margin-left: 60px;
 }
 
 .current-weather-card {
