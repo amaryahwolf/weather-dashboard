@@ -16,4 +16,4 @@ To use this application, enter the name of a city in the search bar. The applica
 Collaborators: Amaryah Wolf
 
 ## License
-N/A
+This application is covered under the MIT License.
