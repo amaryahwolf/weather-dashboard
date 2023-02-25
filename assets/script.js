@@ -34,22 +34,22 @@ function runWeatherSearch(event) {
     };
     var geocodeUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + searchInputVal + '&appid=9c63818d2a58372824ad020aa4224924'
     fetch(geocodeUrl)
-    .then(function (response) {
-        return response.json();
-    })
-    .then (function (data) {
-    var latValue = data[0].lat;
-    var lonValue = data[0].lon;
-// Store lat and lon for saved city search
-if (!searchHistory.includes(searchInputVal)) {
-    searchHistory.push(searchInputVal);
-    localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
-}
-    getHistory();
-    getWeatherForecast(latValue, lonValue);
-    getCurrentWeather(latValue, lonValue);
-    cityInput.value = ''; 
-    })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            var latValue = data[0].lat;
+            var lonValue = data[0].lon;
+            // Store lat and lon for saved city search
+            if (!searchHistory.includes(searchInputVal)) {
+                searchHistory.push(searchInputVal);
+                localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+            }
+            getHistory();
+            getWeatherForecast(latValue, lonValue);
+            getCurrentWeather(latValue, lonValue);
+            cityInput.value = '';
+        })
 }
 
 // Function to get current day's weather
@@ -61,11 +61,11 @@ function getCurrentWeather(latValue, lonValue) {
         })
         .then(function (data) {
             console.log(data)
-    currentWeatherCard.innerHTML = ''        
+            currentWeatherCard.innerHTML = ''
             // City Name
             var cityName = document.createElement('h3');
             cityName.textContent = data.name;
-            currentWeatherCard.appendChild(cityName);            
+            currentWeatherCard.appendChild(cityName);
             // Date
             var currentDate = document.createElement('p');
             var milliseconds = new Date(data.dt * 1000)
@@ -90,7 +90,7 @@ function getCurrentWeather(latValue, lonValue) {
             var currentHumidity = document.createElement('p');
             currentHumidity.textContent = data.main.humidity + '% Humidity';
             currentWeatherCard.classList.add('current-weather-card')
-            currentWeatherCard.appendChild(currentHumidity); 
+            currentWeatherCard.appendChild(currentHumidity);
         })
 }
 
@@ -103,8 +103,8 @@ function getWeatherForecast(latValue, lonValue) {
         })
         .then(function (data) {
             console.log(data)
-         day1Card.innerHTML = ''   
-// Day 1/5 Forecast
+            day1Card.innerHTML = ''
+            // Day 1/5 Forecast
             // Date
             var day1Date = document.createElement('p');
             var milliseconds1 = new Date(data.list[3].dt * 1000)
@@ -128,9 +128,9 @@ function getWeatherForecast(latValue, lonValue) {
             // Humidity
             var day1Humidity = document.createElement('p');
             day1Humidity.textContent = data.list[3].main.humidity + '% Humidity';
-            day1Card.appendChild(day1Humidity);           
-// Day 2/5 Forecast
-day2Card.innerHTML = ''
+            day1Card.appendChild(day1Humidity);
+            // Day 2/5 Forecast
+            day2Card.innerHTML = ''
             var day2Date = document.createElement('p');
             var milliseconds2 = new Date(data.list[11].dt * 1000)
             var convertedDate2 = milliseconds2.toLocaleDateString()
@@ -156,7 +156,7 @@ day2Card.innerHTML = ''
             day2Card.appendChild(day2Humidity);
 
             day3Card.innerHTML = ''
-// Day 3/5 Forecast
+            // Day 3/5 Forecast
             var day3Date = document.createElement('p');
             var milliseconds3 = new Date(data.list[19].dt * 1000)
             var convertedDate3 = milliseconds3.toLocaleDateString()
@@ -181,8 +181,8 @@ day2Card.innerHTML = ''
             day3Humidity.textContent = data.list[19].main.humidity + '% Humidity';
             day3Card.appendChild(day3Humidity);
 
-        day4Card.innerHTML = ''
-// Day 4/5 Forecast
+            day4Card.innerHTML = ''
+            // Day 4/5 Forecast
             var day4Date = document.createElement('p');
             var milliseconds4 = new Date(data.list[27].dt * 1000)
             var convertedDate4 = milliseconds4.toLocaleDateString()
@@ -207,7 +207,7 @@ day2Card.innerHTML = ''
             day4Humidity.textContent = data.list[27].main.humidity + '% Humidity';
             day4Card.appendChild(day4Humidity);
             day5Card.innerHTML = ''
-// Day 5/5 Forecast
+            // Day 5/5 Forecast
             var day5Date = document.createElement('p');
             var milliseconds5 = new Date(data.list[35].dt * 1000)
             var convertedDate5 = milliseconds5.toLocaleDateString()
@@ -231,7 +231,7 @@ day2Card.innerHTML = ''
             var day5Humidity = document.createElement('p');
             day5Humidity.textContent = data.list[35].main.humidity + '% Humidity';
             day5Card.appendChild(day5Humidity);
-})
+        })
 }
 
 submitBtn.addEventListener('click', runWeatherSearch);
